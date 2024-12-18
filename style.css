@@ -18,8 +18,7 @@ body {
 /* Individual Christmas box styling */
 .christmas-box {
     border: 3px solid #b22222; /* Festive red border */
-    background: linear-gradient(to bottom, #fffaf0, #ffefd5); /* Warm gradient */
-    background-image: url('https://www.transparenttextures.com/patterns/snowflakes.png'); /* Snowflake texture */
+    background: linear-gradient(to bottom, #fffaf0, #ffefd5); /* Gradient background */
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -86,19 +85,4 @@ body {
     font-weight: bold; /* Bold text to make it stand out */
     border-radius: 5px; /* Rounded corners for a softer look */
     text-shadow: 0 0 10px rgba(50, 205, 50, 0.8), 0 0 20px rgba(50, 205, 50, 0.6), 0 0 30px rgba(50, 205, 50, 0.4); /* Glowing effect on the text */
-}
-
-.shortage {
-    color: #ff0000; /* Red for shortage */
-    font-weight: bold;
-}
-
-.excess {
-    color: #ffa500; /* Orange for excess */
-    font-weight: bold;
-}
-
-.sufficient {
-    color: #32cd32; /* Green for sufficient stock */
-    font-weight: bold;
 }

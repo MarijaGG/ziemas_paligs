@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
 
 <?php
 
-require "Database.php"; // Include the Database class
-$config = require "config.php"; // Include your config file
+require "Database.php"; 
+$config = require "config.php"; 
 
 // Create a new Database object
 $db = new Database($config["database"]);
@@ -29,8 +29,8 @@ foreach ($results as $row) {
     $gift_requests[$row['gift_id']] = $row['request_count'];
 }
 
-// Display the gift information in an ordered list
-echo "<ol>";
+// Display the gift information in a grid layout
+echo '<div class="gift-container">';
 foreach ($gifts as $gift) {
     // Get the number of children requesting this gift
     $requests_count = $gift_requests[$gift['id']] ?? 0; // Default to 0 if not found
@@ -39,22 +39,19 @@ foreach ($gifts as $gift) {
     if ($gift['count_available'] < $requests_count) {
         $availability = "Not enough stock!";
         $status_class = "shortage";
-    } elseif ($gift['count_available'] > $requests_count) {
-        $availability = "Too many gifts!";
-        $status_class = "excess";
     } else {
         $availability = "Stock is sufficient!";
         $status_class = "sufficient";
     }
 
-    // Display the gift details, including stock and request info
-    echo "<li>" . 
-            htmlspecialchars($gift['name']) . " - " . 
-            htmlspecialchars($gift['count_available']) . " available | " .
-            $requests_count . " children want this gift. " .
-            "<span class='" . $status_class . "'>" . $availability . "</span>" .
-         "</li>";
+    // Display the gift details
+    echo '<div class="gift-box">';
+    echo '<h3>' . htmlspecialchars($gift['name']) . '</h3>';
+    echo '<p>' . htmlspecialchars($gift['count_available']) . ' available | ' . 
+         $requests_count . ' children want this gift.</p>';
+    echo '<p class="' . htmlspecialchars($status_class) . '">' . htmlspecialchars($availability) . '</p>';
+    echo '</div>';
 }
-echo "</ol>";
+echo '</div>';
 
 ?>
